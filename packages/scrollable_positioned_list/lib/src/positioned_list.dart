@@ -174,6 +174,10 @@ class _PositionedListState extends State<PositionedList> {
           physics: widget.physics,
           semanticChildCount: widget.semanticChildCount ?? widget.itemCount,
           slivers: <Widget>[
+             SliverOverlapInjector(
+              // This is the flip side of the SliverOverlapAbsorber above.
+              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+            ),
             if (widget.positionedIndex > 0)
               SliverPadding(
                 padding: _leadingSliverPadding,
